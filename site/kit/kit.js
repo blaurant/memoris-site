@@ -39,6 +39,7 @@
     }
   }
   const MENU_NOD_AFTER = 520;
+  const extra = here === 'index.html' ? '<a class="btn btn--small btn--quiet top__extra" href="../landing-d/">Landing-2</a>' : '';
   const home = 'href="index.html"' + (here === 'index.html' ? ' aria-current="page"' : '');
   const linkList = (list) => list.map(([href, label]) => '<a href="' + href + '"' + (href === here ? ' aria-current="page"' : '') + '>' + label + '</a>');
   function chrome() {
@@ -62,7 +63,7 @@
     top.innerHTML = '<a class="brand d" ' + home + ' aria-label="Memoris, home"><svg data-mark aria-hidden="true"></svg>Memoris</a>' +
       '<a class="btn btn--small top__get" data-store>Download</a>' +
       '<nav aria-label="Main">' + linkList(PAGES).join('') + '</nav>' +
-      '<button class="btn btn--small btn--quiet top__menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>';
+      '<button class="btn btn--small btn--quiet top__menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>' + extra;
 
     const menu = document.createElement('div');
     menu.className = 'menu';
