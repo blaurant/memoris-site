@@ -379,7 +379,7 @@ h3.d{font-size:clamp(1.6rem,2.3vw,2.3rem);font-weight:var(--w-title);letter-spac
   .top__menu{display:inline-flex}
 }
 @container (max-width:520px){
-  .top__get{display:none}
+  .top__get,.top__extra{display:none}
 }
 @media (max-width:940px){
   .plate__head{grid-template-columns:minmax(0,1fr);gap:var(--gap-copy)}
