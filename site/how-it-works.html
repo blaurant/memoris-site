@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works. Memoris.</title>
+<meta name="description" content="You talk to it, and it brings back the names, the moments, and the little everyday things for you, right when you need them.">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="kit/icon-180.png">
+<meta property="og:title" content="How it works. Memoris.">
+<meta property="og:description" content="You talk to it, and it brings back the names, the moments, and the little everyday things for you, right when you need them.">
+<meta property="og:image" content="kit/share.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="how-it-works.css">
+</head>
+<body>
+<header data-masthead></header>
+
+<main id="top">
+  <section class="opener first" data-opener data-wait-fonts>
+    <div class="opener__frame">
+      <div class="opener__copy">
+        <p class="flag rv"><span class="tag"><span class="tag__in">How it works</span></span></p>
+        <h1 class="d rv" style="--wait:.06s">One sentence <em>is enough.</em></h1>
+        <p class="lede rv" style="--wait:.14s">You talk to it, and it brings back the names, the moments, and the little everyday things for you, right when you need them.</p>
+      </div>
+      <div class="first__art rv" style="--wait:.22s" data-tell>
+        <span class="thread"></span>
+        <svg class="first__phone" data-scene="phone" data-near data-flip data-mood="open" data-arm="hold" data-hold="pencil" aria-hidden="true"></svg>
+        <svg class="first__phone is-after" data-scene="phone" data-near data-flip data-mood="glad" data-arm="hold" data-hold="lines" aria-hidden="true"></svg>
+        <div class="hang first__hang">
+          <div class="tag"><div class="tag__in">
+            <form data-form data-tell-form novalidate>
+              <label class="d first__ask" for="one">Tell this page one thing.</label>
+              <div class="field">
+                <input id="one" name="one" type="text" maxlength="140" autocomplete="off" enterkeyhint="done" placeholder="Lunch with Claire Thursday at noon." required aria-describedby="one-error one-note">
+                <p class="field__error" id="one-error" role="alert" hidden>One sentence is enough.</p>
+              </div>
+              <button class="btn" type="submit">Keep it</button>
+              <div class="sent" tabindex="-1" role="status">
+                <span class="who">You</span>
+                <p class="said" data-tell-said></p>
+                <p class="first__kept"><b>Kept.</b> Nothing to file, nothing to memorize.</p>
+              </div>
+            </form>
+            <p class="fine first__note" id="one-note"><span data-tell-before>It stays in your browser. Read on: this page gives it back at the end.</span><span data-tell-after hidden>It stays in your browser, and comes back at the end of this page. <button class="text link" type="button" data-tell-forget>Forget it</button></span></p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="room finds" id="finds">
+    <div class="fold"></div>
+    <svg class="gyrus" data-gyrus="s" style="--w:210px;--r:14deg;right:-90px;top:6%" aria-hidden="true"></svg>
+    <div class="wrap finds__head">
+      <p class="label rv">Support</p>
+      <h2 class="d rv" style="--wait:.06s">It finds everything for you</h2>
+    </div>
+    <div class="trip" data-trip>
+      <div class="trip__stage">
+        <ol class="trip__strip">
+          <li class="zone">
+            <svg class="held trip__rider" data-rider data-note="mark:lines;length:26;w:42;h:52" data-size="1" aria-hidden="true"></svg>
+            <svg data-scene="tell" viewBox="0 0 900 560" role="img" aria-label="In your head, the keeper of your memory says it aloud. What it says leaves on a thread as paper tags, out through the wall of your head, toward Memoris."></svg>
+            <div class="zone__text">
+              <h3 class="d">You tell it.</h3>
+              <p>By speaking, writing, or with a photo. A name, an appointment, a story: one sentence is enough.</p>
+            </div>
+          </li>
+          <li class="zone">
+            <svg data-scene="keep" viewBox="0 0 900 560" role="img" aria-label="Outside your head, Memoris sits on the thread and ties the new tag in its place, among threads full of tags."></svg>
+            <div class="zone__text">
+              <h3 class="d">It remembers.</h3>
+              <p>Memoris keeps and organizes everything for you. Nothing to file, nothing to memorize.</p>
+              <p class="zone__yours" data-tell-echo hidden><span class="who">Yours, kept</span><span class="said" data-tell-said></span></p>
+            </div>
+          </li>
+          <li class="zone">
+            <svg data-scene="answer" viewBox="0 0 900 560" role="img" aria-label="The right tag comes back along the thread from Memoris, through the wall of your head, to the keeper who asked for it."></svg>
+            <div class="zone__text">
+              <h3 class="d">It answers you.</h3>
+              <p>You ask, and it gives it back right away, in a few simple words.</p>
+              <p class="zone__ask"><span class="said">“Where did I put my keys?”</span> In the pocket of your gray coat. You put them there this morning.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="soon rv">
+        <div class="soon__line" aria-hidden="true"><span class="thread thread--dotted"></span><svg class="held" data-note="mark:bell;planned:true;length:26;w:40;h:48" data-size="1.15"></svg></div>
+        <p>Soon, it will also come to you on its own: a gentle reminder at the right moment, without you even having to ask.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="room recall" id="recall">
+    <div class="fold"></div>
+    <svg class="gyrus" data-gyrus="c" style="--w:230px;--r:-12deg;left:-96px;top:5%" aria-hidden="true"></svg>
+    <div class="wrap">
+      <div class="recall__head">
+        <div>
+          <p class="label rv">Stimulate</p>
+          <h2 class="d rv" style="--wait:.06s">It helps you hold on to what matters</h2>
+        </div>
+        <p class="rv" style="--wait:.12s">Memoris does not just remember in your place. It helps you practice remembering what matters. When you ask, it can give you a hint first so you find it yourself, with the full answer always one step away.</p>
+      </div>
+    </div>
+    <div class="well" data-well>
+      <div class="wrap">
+        <ol class="chain">
+          <li class="chain__top" aria-hidden="true"><span class="thread bleed"></span></li>
+          <li class="hang is-you"><div class="tag"><div class="tag__in"><span class="who">You</span><p class="said">“What is my grandson Paul’s girlfriend’s name?”</p></div></div></li>
+          <li class="hang is-memoris"><div class="tag tag--memoris"><div class="tag__in"><span class="who">Memoris</span><p>Let’s find it together. Who gave you this information? Where were you?</p></div></div></li>
+          <li class="hang is-you"><span class="bit" aria-hidden="true"><svg class="held" data-note="mark:face;length:20;w:38;h:46" data-size="1"></svg></span><div class="tag"><div class="tag__in"><span class="who">You</span><p class="said">“It was Paul, he came for lunch with her at my place last weekend to introduce her to me.”</p></div></div></li>
+          <li class="hang is-memoris"><div class="tag tag--memoris"><div class="tag__in"><span class="who">Memoris</span><p>Can you try to recall that moment? Take a moment to think about it, then describe it to me.</p></div></div></li>
+          <li class="hang is-you"><span class="bit" aria-hidden="true"><svg class="held" data-note="mark:photo;length:26;w:42;h:46;fill:amber-pale" data-size="1"></svg></span><div class="tag"><div class="tag__in"><span class="who">You</span><p class="said">“I can picture us chatting at the table.”</p></div></div></li>
+          <li class="hang is-memoris"><div class="tag tag--memoris"><div class="tag__in"><span class="who">Memoris</span><p>What were you feeling at that moment?</p></div></div></li>
+          <li class="hang is-you"><span class="bit" aria-hidden="true"><svg class="held" data-note="mark:heart;length:18;w:36;h:44" data-size="1"></svg></span><span class="bit bit--low" aria-hidden="true"><svg class="held" data-note="mark:glass;length:24;w:36;h:46;fill:mint" data-size="1"></svg></span><div class="tag"><div class="tag__in"><span class="who">You</span><p class="said">“I feel moved because they look so much in love. Paul speaks to her so kindly. I can see him offering her a little wine.”</p></div></div></li>
+          <li class="hang is-you is-found"><div class="tag tag--amber"><div class="tag__in"><span class="who">You</span><p class="said">“Oh yes, that is it, he says to her: ‘Alex, may I pour you some more?’ There it is, I remember, her name is Alex.”</p></div></div></li>
+          <li class="hang name" data-name><div class="tag"><div class="tag__in"><b class="d">Alex</b></div></div></li>
+        </ol>
+      </div>
+      <div class="cast" aria-hidden="true" data-haul>
+        <div class="cast__row">
+          <div class="cast__spot cast__you">
+            <svg class="held is-hauling" data-keeper="pose:hoist;color:coral" data-size=".86" data-by="base"></svg>
+            <svg class="held is-won" data-keeper="color:coral;mood:proud;arm:wave;head:10;marks:hearts" data-size=".86" data-by="base"></svg>
+          </div>
+          <div class="cast__peek"><svg class="held" data-keeper="color:violet;prop:satchel;mood:open;look:up;head:36" data-size=".56" data-by="head" data-flip></svg></div>
+          <div class="cast__spot cast__memoris">
+            <svg class="held is-waiting" data-keeper="pose:wait;color:violet;prop:satchel;hold:face" data-size=".86" data-by="base"></svg>
+            <svg class="held is-offering" data-keeper="pose:wait;arm:give;color:violet;prop:satchel;hold:face;mood:glad" data-size=".86" data-by="base"></svg>
+          </div>
+        </div>
+      </div>
+      <div class="edge on-dark" data-edge>
+        <div class="fold"></div>
+        <div class="cast__row">
+          <div class="hang edge__answer" data-answer hidden><div class="tag tag--memoris"><div class="tag__in"><b>Alex</b></div></div></div>
+          <button class="btn btn--small btn--quiet edge__ask" type="button" data-full aria-expanded="false">The full answer</button>
+        </div>
+        <p class="sr" aria-live="polite" data-full-status></p>
+      </div>
+    </div>
+    <div class="deep on-dark">
+      <div class="wrap">
+        <p class="win d rv">Each time you find it yourself, it’s a small win.</p>
+        <p class="yourlife rv" style="--wait:.08s">And above all, it starts from your life, your loved ones, your habits, your own memories. These are not <span class="nb">ready-made</span> memory exercises: it is your own memory, nourished by what you hold dear.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="room afar on-dark" id="afar">
+    <svg class="gyrus" data-gyrus="h" style="--w:220px;--r:-150deg;right:-100px;bottom:10%" aria-hidden="true"></svg>
+    <div class="wrap">
+      <div class="afar__head">
+        <div>
+          <p class="label rv">Connect</p>
+          <h2 class="d rv" style="--wait:.06s">Soon, your loved ones can help you from afar</h2>
+        </div>
+        <p class="rv" style="--wait:.12s">With your consent, the people who support you will be able to add information directly into Memoris: an appointment for your calendar, a little note that Memoris passes on to you at the right moment.</p>
+      </div>
+      <figure class="afar__fig rv">
+        <span class="thread thread--dotted bleed"></span>
+        <div class="hang hang--planned afar__note"><div class="tag tag--planned"><div class="tag__in"><span class="who">Bernard</span><p class="said">“Hi Mom, I’ll come see you Sunday at 1 p.m.”</p></div></div></div>
+        <svg data-scene="passed" viewBox="0 0 1120 380" role="img" aria-label="Drawn in dashes because it is not there yet: a keeper arrives along a dotted thread with Bernard’s note, and the lunch hangs under Memoris’s lantern. The other memories on the thread stay in the dark."></svg>
+      </figure>
+      <div class="afar__after">
+        <div>
+          <p class="afar__then rv">Memoris notes that the lunch was added to the calendar.</p>
+          <p class="fine afar__fine rv" style="--wait:.08s">This feature is not available yet: it will arrive in a future version of Memoris.</p>
+        </div>
+        <p class="figcap rv" style="--wait:.12s">You choose who helps you, and they never see the rest of your memories.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="room closing closing--long" id="closing">
+    <div class="fold"></div>
+    <div class="wrap">
+      <div class="back" data-back hidden>
+        <span class="thread bleed"></span>
+        <svg class="back__phone" data-scene="phone" data-near data-flip data-mood="glad" data-arm="give" data-hold="lines" aria-hidden="true"></svg>
+        <div class="hang back__hang">
+          <div class="tag"><div class="tag__in">
+            <p class="back__ask">You told this page one thing, <span data-back-when>a moment ago</span>.</p>
+            <button class="btn" type="button" data-back-ask>Ask for it back</button>
+            <div class="back__given" data-back-given hidden tabindex="-1">
+              <span class="who">You said</span>
+              <p class="said" data-tell-said></p>
+              <p class="back__kept">In your words, <span data-back-when>a moment ago</span>. You did not have to hold on to it.</p>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <div class="closing__art rv"><svg data-scene="threshold" role="img" aria-label="Memoris on its phone in a hand, and the keeper of your memory behind the wall, face to face on the same thread."></svg></div>
+      <h2 class="d rv">Try Memoris free for 3 months.</h2>
+      <p class="rv" style="--wait:.08s">We guide you step by step, with nothing complicated to set up.</p>
+      <a class="btn rv" style="--wait:.16s" data-store>Download on the App Store</a>
+      <p class="fine rv" style="--wait:.2s">Download Memoris on the App Store for iPhone.</p>
+      <ul class="closing__more rv" style="--wait:.24s">
+        <li><b>Helping someone?</b> Install Memoris on their iPhone and set it up together: <a class="link" href="caregivers.html">our guide for families</a>.</li>
+        <li><b>Questions?</b> Write to us at <a class="link" href="mailto:support@memoris.ai">support@memoris.ai</a>.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+
+<script src="kit/keepers.js"></script>
+<script src="kit/kit.js"></script>
+<script src="how-it-works.js"></script>
+</body>
+</html>

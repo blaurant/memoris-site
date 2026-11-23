@@ -1,0 +1,27 @@
+:root{--ink:#2C1A3A;--ink-deep:#1B0F26;--paper:#F6EEDC;--paper-deep:#E9DCC3;--card:#FFFBF1;--tissue:#F4C7BE;--tissue-deep:#E8A39B;--tissue-light:#FAE0D9;--tissue-mid:#F0BCB3;--violet:#7E529F;--violet-deep:#5E3B78;--violet-pale:#D7BFEA;--lilac:#F1E9F8;--lilac-deep:#DFCFEE;--coral:#E5573C;--coral-deep:#C4402B;--coral-pale:#F8BFA4;--amber:#F0B339;--amber-deep:#D6952A;--amber-pale:#F8DFA0;--glow:#F5C653;--rose:#E88A96;--rose-deep:#CB6877;--rose-pale:#FBD8D6;--mint:#D8E5BF;--mint-deep:#BFD19F;--leaf:#6E9A52;--night:#4A2D63;--night-deep:#3A2150;--line:rgba(44,26,58,.14)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.55 "Jost","Futura",sans-serif;padding:0 20px 80px}
+.wrap{max-width:1120px;margin:0 auto}
+.top{padding:56px 0 40px}
+.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--violet)}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:800;font-variation-settings:"SOFT" 100,"WONK" 1;letter-spacing:-.03em;line-height:1.05}
+h1{font-size:clamp(2.4rem,6vw,3.8rem);margin-top:10px}
+h2{font-size:2.3rem}
+h3{font-size:1.25rem;margin-top:14px}
+.intro,.lead{max-width:700px;margin-top:12px;color:rgba(44,26,58,.8)}
+section{padding:44px 0;border-top:2px solid var(--line)}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:22px;align-items:end}
+.card{margin:0;padding:18px 14px 14px;border-radius:22px;background:var(--card);box-shadow:0 0 0 1px var(--line);text-align:center}
+.card svg{display:block;margin:0 auto;height:250px;width:auto;max-width:100%}
+.card.small svg{height:150px}
+.card figcaption{margin-top:10px;font-size:13.5px;line-height:1.35;color:rgba(44,26,58,.72)}
+.sub{font-size:1.5rem;margin-top:34px}
+.sub + .lead{margin-top:6px}
+.scenes{display:grid;gap:18px;margin-top:22px}
+.scene{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;padding:22px;border-radius:24px;background:var(--card);box-shadow:0 0 0 1px var(--line)}
+.scene > div{grid-column:1/-1}
+.scene figure{margin:0;border-radius:16px;background:var(--paper);padding:14px}
+.scene svg{display:block;width:100%;height:auto}
+.scene p{margin-top:6px;color:rgba(44,26,58,.78);max-width:760px}
+.num{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(44,26,58,.6)}
+@media (max-width:760px){.scene{grid-template-columns:1fr}}

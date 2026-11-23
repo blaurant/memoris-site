@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Memoris share image</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="kit.css">
+<style>
+html,body{width:1200px;height:630px;overflow:hidden}
+.card{position:relative;width:1200px;height:630px;padding:60px 72px;--divide:812px;--bw:46px}
+.card .brand{position:relative;z-index:2;font-size:2.5rem}
+.card h1.d{position:relative;z-index:2;margin-top:56px;font-size:94px;white-space:nowrap}
+.wall{position:absolute;top:0;bottom:0;right:0;left:var(--divide)}
+.wall::before,.wall::after{content:"";position:absolute;top:0;bottom:0;right:0;-webkit-mask:var(--edge-tile) repeat-y 0 -60px/var(--bw) 502px,linear-gradient(#000,#000) no-repeat calc(var(--bw) - 1px) 0/calc(100% - var(--bw) + 1px) 100%;mask:var(--edge-tile) repeat-y 0 -60px/var(--bw) 502px,linear-gradient(#000,#000) no-repeat calc(var(--bw) - 1px) 0/calc(100% - var(--bw) + 1px) 100%}
+.wall{--edge-tile:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='480' viewBox='0 0 44 480'%3E%3Cpath d='M44 0H24a18 35 0 0 0 0 70a22 55 0 0 0 0 110a14 30 0 0 0 0 60a20 45 0 0 0 0 90a16 40 0 0 0 0 80a19 35 0 0 0 0 70H44Z'/%3E%3C/svg%3E")}
+.wall::before{left:0;background:var(--tissue-deep)}
+.wall::after{left:14px;background:var(--tissue)}
+.card .lede{position:relative;z-index:2;margin-top:34px;max-width:500px;font-size:31px;line-height:1.3}
+.card svg[data-scene]{position:absolute;z-index:1;left:0;bottom:0;width:1200px;height:auto;overflow:visible}
+</style>
+</head>
+<body data-chrome="none">
+<div class="card">
+  <div class="wall"></div>
+  <span class="brand d"><svg data-mark aria-hidden="true"></svg>Memoris</span>
+  <h1 class="d">Trust your<br>memory <em>again.</em></h1>
+  <p class="lede">Memoris is your AI memory partner on iPhone.</p>
+  <svg data-scene="share" viewBox="0 0 1200 330" aria-hidden="true"></svg>
+</div>
+<script src="keepers.js"></script>
+<script src="kit.js"></script>
+<script>
+(() => {
+  const M = window.Memoris;
+  const LINE = [770, 170, 990, 176, 1220, 168];
+  const along = (x) => (x - LINE[0]) / (LINE[4] - LINE[0]);
+  M.scenes.share = () => {
+    const held = M.phone({ mood: 'glad', kept: ['key', 'face', 'calendar'] });
+    const yours = M.keeper({ color: 'coral', mood: 'glad', head: -6, ink: 3 });
+    const [x, y] = M.threadPoint(LINE, along(1016));
+    return '<g class="boil">' + M.strand(LINE, { width: 3.4 }) +
+      M.hung(LINE, along(884), { mark: 'key', length: 22, w: 44, h: 56 }) + M.hung(LINE, along(936), { mark: 'face', length: 46, w: 42, h: 54, fill: M.colors['amber-pale'] }) +
+      M.hung(LINE, along(1136), { mark: 'calendar', length: 20, w: 44, h: 56 }) +
+      M.seat(yours, x, y, 1.12, {}) + '</g>' + M.seat(held, LINE[0], LINE[1], 0.6);
+  };
+})();
+</script>
+</body>
+</html>

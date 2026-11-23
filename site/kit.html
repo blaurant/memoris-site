@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memoris. The kit.</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="kit/kit.css">
+<style>
+.sheet{padding-block:clamp(72px,8vw,120px)}
+.sheet h2.d{font-size:clamp(2.2rem,4.4vw,4.2rem)}
+.sheet>.wrap>p,.sheet .note{max-width:44em;margin-top:1.1em}
+.sheet .wrap>h3.d{margin-top:2.4em}
+.sheet .wrap>h3.d+p{margin-top:.7em;max-width:44em}
+pre{margin-top:1.2em;padding:18px 20px;background:var(--ink);color:var(--paper);font:400 .82rem/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-x:auto;white-space:pre;tab-size:2}
+code{font:400 .86em/1 ui-monospace,SFMono-Regular,Menlo,monospace}
+p code,li code,td code,figcaption code{background:color-mix(in srgb,var(--ink) 9%,transparent);padding:.12em .36em;border-radius:3px}
+.on-dark p code,.on-dark td code{background:color-mix(in srgb,var(--paper) 16%,transparent)}
+.demo{position:relative;margin-top:1.6em;padding:clamp(20px,3vw,40px);border:var(--line) dashed color-mix(in srgb,var(--ink) 30%,transparent)}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:14px;margin-top:1.1em}
+.swatches li{font:var(--w-ui-mid) .8rem/1.3 var(--font-ui)}
+.swatches i{display:block;height:64px;margin-bottom:8px;box-shadow:inset 0 0 0 var(--line) var(--ink)}
+.swatches b{display:block;font-weight:var(--w-ui);opacity:.7;text-transform:uppercase}
+#swatches{margin-top:1.4em}
+#swatches h3.d{margin-top:1.5em;font-size:1.25rem}
+.rules{margin-top:1.4em;max-width:46em}
+.rules li{position:relative;padding:.7em 0 .7em 1.6em;border-top:1.5px solid color-mix(in srgb,currentColor 26%,transparent)}
+.rules li::before{content:"";position:absolute;left:.1em;top:1.25em;width:.55em;height:.55em;border-radius:50%;background:var(--coral)}
+table{margin-top:1.4em;border-collapse:collapse;font:var(--w-ui) .95rem/1.4 var(--font-ui);max-width:60em}
+th,td{text-align:left;vertical-align:top;padding:.6em 1.4em .6em 0;border-top:1.5px solid color-mix(in srgb,currentColor 26%,transparent)}
+th{font-weight:var(--w-ui-strong);white-space:nowrap}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:0;margin-top:1.6em}
+.cell{position:relative;height:292px;box-shadow:0 0 0 .75px color-mix(in srgb,var(--ink) 22%,transparent)}
+.cell .perch{top:214px}
+.cell--free .perch{top:120px}
+.cell--free .thread{display:none}
+.cell--hang .perch{top:42px}
+.cell figcaption{position:absolute;left:10px;top:8px;right:10px;font:var(--w-ui-mid) .78rem/1.35 var(--font-ui)}
+.row{display:flex;flex-wrap:wrap;gap:22px 34px;align-items:flex-start}
+.line-demo{position:relative;margin-top:170px}
+.line-demo .held{left:82%}
+.line-demo .line .hang{flex:1 1 0;min-width:0}
+.type-demo .d{margin-top:.5em}
+.type-demo p{margin-top:.8em;max-width:34em}
+.toc{display:flex;flex-wrap:wrap;gap:0 1.6em;margin-top:var(--s-4);font:var(--w-ui-mid) 1rem/1.3 var(--font-ui)}
+.toc a{min-width:var(--target);padding-block:calc((var(--target) - 1.3em) / 2)}
+@media (max-width:760px){.line-demo .line{flex-direction:column;gap:0}.line-demo .line .hang{flex:none;width:88%}table,tbody,tr,th,td{display:block}th{white-space:normal;padding:.6em 0 0}td{border-top:0;padding:.2em 0 .6em}}
+</style>
+</head>
+<body>
+<header data-masthead></header>
+
+<main>
+  <section class="opener">
+    <div class="opener__frame">
+      <div class="opener__copy">
+        <p class="flag rv"><span class="tag"><span class="tag__in">Reference sheet</span></span></p>
+        <h1 class="d rv">The kit, <em>piece by piece.</em></h1>
+        <p class="lede rv" style="--wait:.1s">Everything here is shared by every page of the site: colours and type, header and footer, tags, threads, fold walls, the keepers and the motion engine. Build pages from these pieces. If a piece is missing, ask for it; do not draw a second version.</p>
+        <nav class="toc rv" style="--wait:.18s" aria-label="On this sheet">
+          <a class="link" href="#page">A page</a><a class="link" href="#tokens">Colour and type</a><a class="link" href="#rooms">Rooms</a><a class="link" href="#tags">Threads and tags</a><a class="link" href="#keepers">Keepers</a><a class="link" href="#scenes">Scenes</a><a class="link" href="#motion">Motion</a><a class="link" href="#pieces">Pieces</a><a class="link" href="#states">States</a><a class="link" href="#rules">Rules</a>
+        </nav>
+      </div>
+      <figure class="opener__art"><svg data-scene="sheet" viewBox="0 0 560 420" role="img" aria-label="Keepers at work on two threads; one of the threads leaves from Memoris's phone, held in a hand."></svg></figure>
+    </div>
+  </section>
+
+  <section class="room sheet" id="page" style="--bg:var(--tissue);--wall:var(--tissue-deep)">
+    <div class="fold"></div>
+    <div class="wrap">
+      <h2 class="d">A page</h2>
+      <p>Pages sit side by side in <code>site/</code> and are opened straight from disk. Copy this skeleton. The header, the phone menu, the scroll-up Download tag and the footer are written by <code>kit.js</code>, so no page carries its own copy. Page-only styles and scripts go in the page or in a file beside it named after the page, never in <code>kit/</code>.</p>
+<pre><code>&lt;link rel="icon" href="kit/icon.svg" type="image/svg+xml"&gt;
+&lt;link rel="apple-touch-icon" href="kit/icon-180.png"&gt;
+&lt;meta property="og:image" content="kit/share.png"&gt;
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link rel="stylesheet" href="kit/kit.css"&gt;                 loads the fonts too: no font link in a page
+...
+&lt;body&gt;
+&lt;header data-masthead&gt;&lt;/header&gt;
+&lt;main&gt; ... &lt;/main&gt;
+&lt;footer data-footer&gt;&lt;/footer&gt;
+&lt;script src="kit/keepers.js"&gt;&lt;/script&gt;   characters and drawing helpers
+&lt;script src="kit/kit.js"&gt;&lt;/script&gt;       header, footer, mounting, motion
+&lt;script src="your-page.js"&gt;&lt;/script&gt;     scenes and page behaviour, after the kit
+&lt;/body&gt;</code></pre>
+      <p class="note">Classic scripts and relative paths only. <code>&lt;body data-chrome="none"&gt;</code> removes header and footer for a bare page. <code>&lt;body data-pin="none"&gt;</code> keeps them and removes only the scroll-up Download tag (legal pages, confirmations). <code>&lt;body data-pin="Get your practice code|#code"&gt;</code> gives that tag the page's own words and target, for a page whose reader does not download. The nav marks the current page by file name. The App Store address is one constant, <code>STORE_LINK</code> at the top of <code>kit.js</code>; give any download button <code>data-store</code> and no <code>href</code>.</p>
+      <h3 class="d">The mark</h3>
+      <p>The logo is the keeper's head in profile, beside the word Memoris. It lives in one definition, <code>MARK</code> in <code>kit/keepers.js</code>: two drawings in a 64 by 64 box, <code>free</code> for the mark alone and <code>tile</code> for the mark on the violet square of an icon, each a function of its colours <code>{ fg, bg, accent, second, bead }</code>, which is how the logo studies hand a mark over. The header, the menu, the footer, the share card and the icons all read it. To change the logo, replace <code>MARK</code>, then run <code>node kit/icons.mjs</code> from <code>site/</code>: it rewrites <code>kit/icon.svg</code>, <code>kit/icon-180.png</code> and <code>kit/share.png</code>, the three files a browser tab or a crawler reads without running the kit.</p>
+      <div class="demo row" style="align-items:center">
+        <span class="brand d" style="margin:0;padding:18px 26px;background:var(--paper)"><svg data-mark aria-hidden="true"></svg>Memoris</span>
+        <span class="brand d" style="margin:0;padding:18px 26px;background:var(--ink);color:var(--paper)"><svg data-mark data-tone="light" aria-hidden="true"></svg>Memoris</span>
+        <img src="kit/icon.svg" width="64" height="64" alt="The app icon: the keeper's head, paper white on violet.">
+        <img src="kit/icon.svg" width="32" height="32" alt="">
+        <img src="kit/icon.svg" width="16" height="16" alt="">
+      </div>
+<pre><code>&lt;span class="brand d"&gt;&lt;svg data-mark aria-hidden="true"&gt;&lt;/svg&gt;Memoris&lt;/span&gt;      violet, on paper
+&lt;svg data-mark data-ground="lilac" aria-hidden="true"&gt;&lt;/svg&gt;                   its eye shows the ground: name the colour variable under it when it is not paper
+&lt;svg data-mark data-tone="light" aria-hidden="true"&gt;&lt;/svg&gt;                     paper, on a dark room
+M.mark('light', M.colors.lilac)   M.mark('dark')   M.mark.icon()                in a script; M.mark.box is its viewBox</code></pre>
+    </div>
+  </section>
+
+  <section class="room sheet" id="tokens" style="--bg:var(--paper);--wall:var(--paper-deep)">
+    <div class="fold"></div>
+    <div class="wrap">
+      <h2 class="d">Colour and type</h2>
+      <p>Violet leads: it is the company's colour, and here it is Memoris and everything that is Memoris's (the keeper, its answers, the phone's screen, the buttons, the mark, the focus ring). The line is drawn in a violet-black ink. The world around it stays light and warm: cream paper, the pink of the head, coral for the person's own memory, marigold for emphasis, pistachio for a change of room. Every value lives once, at the top of <code>kit/kit.css</code>. Use the variables in CSS and <code>M.colors['amber-pale']</code> in a script (any variable name, without the dashes in front); never write a hex value in a page.</p>
+      <div id="swatches"></div>
+      <table>
+        <tr><th>Violet</th><td><code>--violet</code> and <code>--violet-deep</code> are the app's own primary and dark. <code>--lilac</code> is the app's light wash: Memoris's screen, and a room of its own with <code>--lilac-deep</code>.</td></tr>
+        <tr><th>Each keeper colour</th><td>Three steps: the body, <code>-deep</code> for its shadow, <code>-pale</code> for its belly. <code>--glow</code> is the light of a lantern and the yellow of a fin; <code>--leaf</code> is what a keeper other than Memoris wears.</td></tr>
+        <tr><th>Text on colour</th><td>Ink on every light room. On <code>--violet</code>, <code>--night</code> and ink, text is <code>--card</code> or <code>--paper</code>. Coral and marigold never carry text in their own colour on paper: use <code>--coral-deep</code> for an error.</td></tr>
+      </table>
+      <h3 class="d">Type</h3>
+      <p>Every typographic decision is a variable in the same block of <code>kit/kit.css</code>, and the fonts themselves are loaded by its first line. Changing the typeface of the whole site is that one block: the <code>@import</code>, the three families, the weights the new face has, and two size factors if it runs larger or smaller. Pages use the classes below and these variables; they never name a font, a numeric weight or an axis setting.</p>
+      <div class="demo type-demo">
+        <p class="label">.label, for small caps labels only</p>
+        <h2 class="d">h2.d, a title, with <em>a turn</em></h2>
+        <h3 class="d">h3.d, a smaller title</h3>
+        <p class="lede">.lede, the paragraph under a page title.</p>
+        <p>Body text, at 18 to 21 px. <a class="link" href="#tokens">.link</a> is the text link. <span class="fine">.fine is the small print.</span></p>
+        <p class="said">“.said is how a person speaks.”</p>
+      </div>
+      <table>
+        <tr><th>Families</th><td><code>--font-display</code> titles (<code>.d</code>), <code>--font-text</code> reading text, tags and buttons, <code>--font-ui</code> labels, navigation and small print.</td></tr>
+        <tr><th>Weights</th><td><code>--w-display</code> titles, <code>--w-title</code> small titles and the turned word of an <code>h1</code>, <code>--w-strong</code> buttons and questions, <code>--w-voice</code> what a person says, <code>--w-body-mid</code>, <code>--w-body</code>; <code>--w-ui</code>, <code>--w-ui-mid</code>, <code>--w-ui-strong</code> for the label family.</td></tr>
+        <tr><th>Axes</th><td><code>font-variation-settings:var(--axes-display)</code> for large titles, <code>var(--axes-title)</code> for small ones, <code>var(--axes-text)</code> for text. Two more for particular settings: <code>var(--axes-statement)</code> for a large statement paragraph set in the text face, <code>var(--axes-caps)</code> for a paragraph in capitals. With a face that has no axes they are all set to <code>normal</code> once.</td></tr>
+        <tr><th>Slant</th><td><code>--style-em</code> for the turned word of a title, <code>--style-voice</code> for speech and captions.</td></tr>
+        <tr><th>Spacing</th><td><code>--track-display</code>, <code>--track-title</code>, <code>--track-label</code>, <code>--word-display</code>, <code>--lead-display</code>.</td></tr>
+        <tr><th>Size</th><td><code>--scale-display</code> multiplies every title: anything with the class <code>d</code> is scaled as a whole (with <code>zoom</code>), so a page's own title sizes follow with nothing to write. Put <code>d</code> on the title itself, never on a block that also holds a drawing. <code>--scale-text</code> multiplies running text: the body size and everything in em under it, ledes, captions, questions. Where a page sets its own size on running text, or on the text of a field, it multiplies it: <code>font-size:calc(... * var(--scale-text))</code>.</td></tr>
+        <tr><th>Labels</th><td><code>--case-label</code> (<code>uppercase</code> or <code>none</code>), <code>--caps-label</code> (<code>font-variant-caps</code>), <code>--style-label</code> and <code>--scale-label</code> act on <code>.label</code>, <code>.who</code> and a flag. A page that makes or resizes its own small caps writes <code>text-transform:var(--case-label)</code>, <code>font-variant-caps:var(--caps-label)</code>, <code>font-style:var(--style-label)</code> and multiplies its size by <code>var(--scale-label)</code>.</td></tr>
+        <tr><th>Interface</th><td><code>--scale-ui</code> multiplies the small interface text set in the label family: navigation, small print, footer, field messages. A page that sets its own size on one of these multiplies it: <code>font-size:calc(... * var(--scale-ui))</code>. Buttons, the scroll-up tag and other controls keep their size whatever the face: a long button already fills a phone's width.</td></tr>
+        <tr><th>Title leading</th><td><code>--lead-plus</code> is added to every title line-height written as a number: <code>line-height:calc(.97 + var(--lead-plus))</code>. A plain <code>.d</code> keeps <code>--lead-display</code>.</td></tr>
+        <tr><th>The turned word</th><td><code>--em-color</code> colours the <code>em</code> of a title (<code>currentColor</code> today; a face with no italic sends violet). <code>--axes-em</code> and <code>--axes-voice</code> are not set today: a face whose italic is a slant axis sets them, and they reach the <code>em</code> of a title and <code>.said</code>, <code>.figcap</code>. A page with its own italic voice writes <code>font-variation-settings:var(--axes-voice,inherit)</code> beside <code>font-style:var(--style-voice)</code>.</td></tr>
+        <tr><th>No faked styles</th><td><code>font-synthesis:none</code> on the page: a weight or an italic the face does not have is never imitated, so use only the weight variables.</td></tr>
+        <tr><th>The offset shadow</th><td><code>text-shadow:var(--title-shadow)</code> is the marigold offset under a page title; <code>--title-shadow-warm</code> is the same offset in paper, for a title on the marigold room. <code>--title-shadow-fine</code> is a slightly shorter offset for very large titles, <code>--title-shadow-bold</code> a slightly longer one for small display text. <code>--offset</code> is the geometry alone, to pair with another colour. A face that drops the shadow sets all four to <code>none</code>.</td></tr>
+      </table>
+      <p class="note">Two units drive first screens. <code>--u</code> follows the smaller of window width and height and sizes drawings. <code>--t</code> sizes type and grows up to 1.24 times <code>--u</code> on wide, short windows so the screen stays full. Both stop at <code>--grow</code>, the size they reach when the window is as wide as the column, and section titles stop there too; the home page, which runs edge to edge, sets <code>--grow</code> higher. On a narrow or upright window the first screen stacks, and its title grows from 42 px at 600 px of window to 90 px.</p>
+      <h3 class="d">Space</h3>
+      <p>One scale, defined once in the same block of <code>kit/kit.css</code>: <code>--s-1</code> to <code>--s-10</code> are 4, 8, 12, 16, 24, 32, 48, 64, 96 and 128 px. Inside the header, a first screen (<code>.opener</code>, or the section a page marks <code>data-opener</code>) and anything given the class <code>frame</code>, the same names grow with <code>--t</code> on large windows, so a frame keeps its proportions. A page writes its gaps with these names and with the roles below, so the same relationship has the same value on every page.</p>
+      <table>
+        <tr><th><code>--gap-flag</code></th><td>A flag to its title: 24 px.</td></tr>
+        <tr><th><code>--gap-lede</code></th><td>A page title to its lede, and a closing title to its line: 24 px on a phone, 32 px from a tablet up.</td></tr>
+        <tr><th><code>--gap-copy</code></th><td>A section title to its paragraph: 24 px.</td></tr>
+        <tr><th><code>--gap-cta</code></th><td>Text to its button: 32 px.</td></tr>
+        <tr><th><code>--gap-note</code></th><td>A button to its small print: 12 px. A second line of small print follows 8 px lower.</td></tr>
+        <tr><th><code>--gap-figure</code></th><td>A section's title block to the drawing or thread under it: 64 to 128 px.</td></tr>
+        <tr><th><code>--gap-after</code></th><td>A drawing to the text that follows it: 32 to 64 px.</td></tr>
+        <tr><th><code>--perch</code></th><td>The air between a text and the top of a keeper perched on the thread under it: 48 to 96 px.</td></tr>
+        <tr><th><code>--start</code></th><td>Where the first line of a first screen sits once the page is stacked: 32 px under the header on a phone, up to 64 px on a tablet.</td></tr>
+        <tr><th><code>--room</code>, <code>--room-end</code></th><td>The padding above and below a room, and under the last room of a page.</td></tr>
+        <tr><th><code>--gutter</code></th><td>The side edge of the page. The header, first screens, <code>.wrap</code> and the footer all sit on it: 20 to 84 px on a narrow or upright window, the frame's own inset on a wide one. From 1553 px of window <code>.wrap</code> stops growing and centres a <code>--column</code> of 1320 px. <code>--edge</code> is where that column starts, for something pinned to it.</td></tr>
+        <tr><th><code>--fold</code></th><td>How far a fold rises above its room. A room that ends on text leaves <code>calc(var(--s-8) + var(--fold))</code> under its last line.</td></tr>
+        <tr><th><code>--target</code></th><td>44 px, the smallest height of anything a finger presses.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="room sheet" id="rooms" style="--bg:var(--mint);--wall:var(--mint-deep)">
+    <div class="fold"></div>
+    <svg class="gyrus" data-gyrus="s" style="--w:220px;--r:-20deg;right:-104px;top:12%" aria-hidden="true"></svg>
+    <div class="wrap">
+      <h2 class="d">Rooms and fold walls</h2>
+      <p>A page is a stack of rooms. Each room sets its own background and the darker shade of its wall; the scalloped fold at its top edge overlaps the room above. The curls in the background are optional and drift slowly on scroll.</p>
+<pre><code>&lt;section class="room" style="--bg:var(--mint);--wall:var(--mint-deep)"&gt;
+  &lt;div class="fold"&gt;&lt;/div&gt;
+  &lt;svg class="gyrus" data-gyrus="s" style="--w:220px;--r:-20deg;right:-104px;top:12%" aria-hidden="true"&gt;&lt;/svg&gt;
+  &lt;div class="wrap"&gt; ... &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+      <table>
+        <tr><th>Pairs in use</th><td><code>--tissue</code> / <code>--tissue-deep</code>, <code>--tissue-light</code> / <code>--tissue-mid</code>, <code>--paper</code> / <code>--paper-deep</code>, <code>--mint</code> / <code>--mint-deep</code>, <code>--lilac</code> / <code>--lilac-deep</code>, <code>--amber</code> / <code>--amber-deep</code>, <code>--night</code> / <code>--night-deep</code></td></tr>
+        <tr><th>Dark rooms</th><td>Add <code>--fg:var(--paper);--thread:var(--paper)</code> and the class <code>on-dark</code>: focus rings turn amber, buttons turn to paper, and form fields and their errors stay readable.</td></tr>
+        <tr><th>Curls</th><td><code>data-gyrus</code> is <code>c</code>, <code>s</code> or <code>h</code>; place with <code>--w</code>, <code>--r</code> and an edge offset.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="room sheet" id="tags" style="--bg:var(--tissue-light);--wall:var(--tissue-mid)">
+    <div class="fold"></div>
+    <div class="wrap">
+      <h2 class="d">Threads and tags</h2>
+      <p>Everything a person says or takes hangs from a thread as a paper tag. A thread is a hand-drawn rule; a tag hangs from it on a string, sways with scroll speed and settles. Buttons are tags cut on the side.</p>
+      <div class="line-demo">
+        <span class="thread bleed"></span>
+        <svg class="held" data-keeper="color:coral;mood:glad" data-size=".8" aria-hidden="true"></svg>
+        <div class="line">
+          <div class="hang" style="--string:36px;--tilt:-2deg"><div class="tag"><div class="tag__in"><span class="who">You</span><p class="said">“A plain tag.”</p></div></div></div>
+          <div class="hang" style="--string:104px;--tilt:2deg"><div class="tag tag--memoris"><div class="tag__in"><span class="who">Memoris</span><p>tag--memoris is Memoris answering.</p></div></div></div>
+          <div class="hang" style="--string:60px;--tilt:-1.5deg"><div class="tag tag--amber"><div class="tag__in"><p>tag--amber, for emphasis.</p></div></div></div>
+        </div>
+      </div>
+<pre><code>&lt;div style="position:relative"&gt;
+  &lt;span class="thread bleed"&gt;&lt;/span&gt;                      bleed = across the whole window
+  &lt;svg class="held" data-keeper="color:coral" data-size=".8" aria-hidden="true"&gt;&lt;/svg&gt;
+  &lt;div class="line"&gt;
+    &lt;div class="hang" style="--string:36px;--tilt:-2deg"&gt;
+      &lt;div class="tag"&gt;&lt;div class="tag__in"&gt;&lt;span class="who"&gt;You&lt;/span&gt;&lt;p class="said"&gt;“...”&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      <table>
+        <tr><th><code>.hang</code></th><td><code>--string</code> length of the string, <code>--tilt</code> resting angle, <code>--at</code> where the string meets the tag (50% by default). Vary string lengths along a line; never line tags up.</td></tr>
+        <tr><th><code>.thread</code></th><td>Alone it fills its parent's width. With <code>.bleed</code> it crosses the window. Inside <code>.perch</code> it is a thread with nothing hanging, for a keeper to sit on.</td></tr>
+        <tr><th><code>.thread--down</code></th><td>A vertical thread, for narrow screens where a line of tags becomes a drop: <code>&lt;span class="thread thread--down" style="height:420px"&gt;&lt;/span&gt;</code>, or stretched by <code>top</code> and <code>bottom</code>. Add <code>thread--dotted</code> for one that is not there yet.</td></tr>
+        <tr><th><code>.held</code></th><td>A keeper placed on the thread: set <code>left</code> in the page's CSS; the tail grips the thread by itself.</td></tr>
+      </table>
+      <h3 class="d">A small drawn tag</h3>
+      <p>For a memory hung on an HTML thread without words: a small tag with a picture, mounted by the kit with the boiling line. Place it like a keeper, with <code>left</code> in your CSS.</p>
+      <div class="demo" style="padding-top:60px;padding-bottom:110px"><div style="position:relative"><span class="thread"></span><div id="notes-demo"></div></div></div>
+<pre><code>&lt;svg class="held" data-note="mark:calendar;fill:amber-pale;length:30" data-size="1" aria-hidden="true"&gt;&lt;/svg&gt;</code></pre>
+      <table>
+        <tr><th><code>data-note</code></th><td><code>mark</code> one of the tag marks listed under Keepers. <code>fill</code> is the name of any colour variable: <code>card</code> (by default), <code>amber-pale</code>, <code>lilac</code>, <code>mint</code>, <code>paper</code>, <code>tissue</code>. <code>length</code> of the string, <code>w</code> and <code>h</code> of the tag. <code>planned:true</code> for one not there yet. <code>gone:true</code> for one that went missing: the string, and only the torn top of the tag around its eyelet. In a dark room add <code>string:paper</code>. <code>M.miniTag</code> and <code>M.hung</code> take the same options in a scene.</td></tr>
+      </table>
+      <h3 class="d">Not yet</h3>
+      <p>Whatever is planned, coming soon or not proven yet is drawn dashed and left unpainted, on every page: a dotted thread, a dotted string, a dashed tag with the room showing through.</p>
+      <div class="demo" style="padding-top:40px"><div style="position:relative"><span class="thread thread--dotted"></span><div class="line">
+        <div class="hang hang--planned" style="--string:40px;--tilt:-2deg;width:min(100%,300px)"><div class="tag tag--planned"><div class="tag__in"><span class="who">Planned</span><p>Text is allowed inside.</p></div></div></div>
+        <div class="hang" style="--string:70px;--tilt:1.5deg;width:min(100%,260px)"><div class="tag"><div class="tag__in"><p>Beside one that exists.</p></div></div></div>
+      </div></div></div>
+<pre><code>&lt;span class="thread thread--dotted"&gt;&lt;/span&gt;
+&lt;div class="hang hang--planned"&gt;&lt;div class="tag tag--planned"&gt;&lt;div class="tag__in"&gt;...&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+M.hung(thread, 0.6, { mark: 'goal', planned: true })      in a scene; M.miniTag takes it too
+M.strand(thread, { dotted: true })                        the dotted thread in a scene</code></pre>
+      <h3 class="d">A torn tag</h3>
+      <p>For something lost or cut short. <code>data-torn</code> takes <code>right</code>, <code>bottom</code> or <code>left</code>; the tear follows the tag when it resizes. Leave a little more padding on the torn side.</p>
+      <div class="demo row" style="position:relative">
+        <div class="hang" style="--string:26px;--tilt:-2deg;width:min(100%,300px)"><div class="tag tag--memoris" data-torn="right"><div class="tag__in"><span class="who">Memoris</span><p>Thursday at 3 p.m.,</p></div></div></div>
+        <div class="hang" style="--string:44px;--tilt:1.5deg;width:min(100%,300px)"><div class="tag" data-torn="bottom"><div class="tag__in"><p class="said">“Remind me to bring her</p></div></div></div>
+      </div>
+<pre><code>&lt;div class="tag tag--memoris" data-torn="right"&gt;&lt;div class="tag__in"&gt;...&lt;/div&gt;&lt;/div&gt;</code></pre>
+      <h3 class="d">Buttons and flags</h3>
+      <div class="demo row" id="buttons-demo">
+        <a class="btn" data-store>Download on the App Store</a>
+        <a class="btn btn--small" href="#tags">btn btn--small</a>
+        <button class="btn btn--small btn--quiet" type="button">btn--quiet</button>
+        <p class="flag" style="margin:0"><span class="tag"><span class="tag__in">A flag</span></span></p>
+        <a class="link" href="#tags">A text link</a>
+      </div>
+<pre><code>&lt;a class="btn" data-store&gt;Download on the App Store&lt;/a&gt;
+&lt;p class="flag"&gt;&lt;span class="tag"&gt;&lt;span class="tag__in"&gt;Now on the App Store&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
+    </div>
+  </section>
+
+  <section class="room sheet" id="keepers" style="--bg:var(--tissue);--wall:var(--tissue-deep)">
+    <div class="fold"></div>
+    <div class="wrap">
+      <h2 class="d">Keepers</h2>
+      <p>The keepers are seahorses because the part of the brain that makes new memories is the hippocampus, Greek for seahorse. One hand draws them: compose from this library and ask for a new pose when you need one. Never draw your own.</p>
+      <table>
+        <tr><th>Memoris</th><td>Violet, always with the satchel: <code>color:violet;prop:satchel</code> as a free keeper, <code>data-scene="phone"</code> or <code>M.phone()</code> on its phone in a hand (under Scenes). Three rules place it. It is never drawn inside a head or a brain shape, anywhere. On the home page it is only ever on its phone. On every other page it is a free keeper by default; the phone is used sparingly there, where a visitor would really have their phone in hand.</td></tr>
+        <tr><th>Your memory</th><td>Coral: the person's own memory. It wears nothing; colour alone tells the keepers apart. <code>color:coral</code></td></tr>
+        <tr><th>Someone close</th><td>Rose: family, a loved one, the family caregiver.</td></tr>
+        <tr><th>A professional</th><td>Amber. With the stethoscope it is clinical (clinician, nurse) on every page: <code>color:amber;prop:stethoscope</code>. A visiting aide who is not clinical wears the scarf.</td></tr>
+        <tr><th>Inside one head</th><td>Where a drawing shows one mind at work, amber and rose are simply that memory's other keepers.</td></tr>
+      </table>
+<pre><code>&lt;svg class="held" data-keeper="pose:read;color:amber;prop:glasses;arm:hold;hold:book" data-size=".8" aria-hidden="true"&gt;&lt;/svg&gt;</code></pre>
+      <table>
+        <tr><th><code>pose</code></th><td id="list-poses"></td></tr>
+        <tr><th><code>color</code></th><td><code>violet</code> <code>coral</code> <code>amber</code> <code>rose</code></td></tr>
+        <tr><th><code>mood</code></th><td id="list-moods"></td></tr>
+        <tr><th><code>arm</code></th><td id="list-arms"></td></tr>
+        <tr><th><code>hold</code></th><td id="list-hold"></td></tr>
+        <tr><th><code>holdsize</code></th><td>Scales what is held, for keepers drawn very small: <code>hold:case;holdsize:1.4</code> on a row of pictograms.</td></tr>
+        <tr><th><code>carry</code></th><td>In the snout: a tag mark, <code>lantern</code> or <code>letter</code>.</td></tr>
+        <tr><th><code>prop</code></th><td id="list-props"></td></tr>
+        <tr><th><code>marks</code></th><td id="list-marks"></td></tr>
+        <tr><th>Tag marks</th><td id="list-tagmarks"></td></tr>
+        <tr><th><code>paint</code></th><td>The colour on a held <code>brush</code> or of a <code>pencil</code>: a keeper colour (<code>violet</code>, <code>coral</code>, <code>amber</code>, <code>rose</code>) or the name of any colour variable (<code>paint:coral-deep</code>, <code>paint:ink</code>). <code>pose:draw;hold:brush;paint:amber</code> paints in marigold.</td></tr>
+        <tr><th><code>look</code></th><td id="list-looks"></td></tr>
+        <tr><th><code>stage</code></th><td><code>rough</code> is the pencil construction, <code>ink</code> the clean line on an unpainted cel; leave it out for the painted keeper. Rough and ink are still drawings: they do not blink, hop or boil. The pencil is <code>--coral-deep</code>; <code>pencil:ink</code> changes it, with the name of any colour variable.</td></tr>
+        <tr><th><code>head</code>, <code>lean</code></th><td>Degrees. A positive <code>head</code> lifts the snout; <code>lean</code> tips the whole body. <code>back:true</code> turns the head to look behind.</td></tr>
+        <tr><th>On the tag</th><td><code>data-size</code> scale. <code>data-flip</code> faces right. <code>data-by</code> which point sits on the element: <code>curl</code> (the tail, on a thread), <code>head</code>, <code>base</code>, <code>tip</code>, <code>hand</code>, <code>eye</code>, <code>chest</code>, <code>fin</code>, <code>satchel</code>. <code>data-lift</code> on a keeper inside a <code>.hang</code> makes room above the tag. <code>data-fit</code> makes a keeper or a small tag follow the first-screen unit <code>--t</code>: <code>data-size</code> is then its size in a 1440 px wide window, and it never goes under 60% of that (<code>--fit-min</code> to change the floor). Do not scale a <code>.held</code> with CSS <code>scale</code>.</td></tr>
+      </table>
+      <h3 class="d">Poses</h3>
+      <p>Each pose knows where it holds on. Hover one: they hop. Their eyes follow the pointer.</p>
+      <div class="gallery" id="gallery-poses"></div>
+      <table>
+        <tr><th>Acting notes</th><td><code>pose:wait</code> sits on an edge like <code>pose:hoist</code>, a tag resting on its lap (<code>hold:face</code>); switch its <code>arm</code> to <code>give</code> and it offers the tag from the same seat. <code>pose:tie</code> knots a tag onto the thread it sits on: the knot is at <code>hand</code>, and a held tag hangs below the thread. <code>pose:lean</code> leans in over something another keeper holds and points at it. <code>pose:dangle</code> holds a string in its fist under its snout and looks down it: hang from <code>hand</code>. <code>pose:draw</code> and <code>pose:admire</code> are the maker at work and stepping back.</td></tr>
+      </table>
+      <h3 class="d">Model sheet</h3>
+      <p>The same keeper at three stages, for showing how one is made. <code>stage:ink</code> is also the keeper that does not exist yet, for anything "coming soon".</p>
+      <div class="gallery" id="gallery-stages"></div>
+      <h3 class="d">Moods</h3>
+      <div class="gallery" id="gallery-moods"></div>
+      <h3 class="d">Arms, things held and things worn</h3>
+      <div class="gallery" id="gallery-acting"></div>
+      <h3 class="d">Marks above the head</h3>
+      <div class="gallery" id="gallery-marks"></div>
+    </div>
+  </section>
+
+  <section class="room sheet" id="scenes" style="--bg:var(--paper);--wall:var(--paper-deep)">
+    <div class="fold"></div>
+    <div class="wrap">
+      <h2 class="d">Scenes</h2>
+      <p>When several keepers share one drawing, write a scene: a function that returns SVG, registered by name before the page finishes loading. The kit mounts it, gives its line the cel boil and animates it. Everything inside <code>&lt;g class="boil"&gt;</code> is redrawn in three tracings; anything outside stays still, like a painted background.</p>
+<pre><code>&lt;svg data-scene="shelf" viewBox="0 0 560 300" role="img" aria-label="..."&gt;&lt;/svg&gt;
+
+const M = window.Memoris;
+M.scenes.shelf = () =&gt; {
+  const thread = [0, 200, 280, 236, 560, 200];              x1 y1, sag point, x2 y2
+  const reader = M.keeper({ pose: 'read', color: 'coral', arm: 'hold', hold: 'book', ink: 3 });
+  const [x, y] = M.threadPoint(thread, 0.3);                a point 30% along the thread
+  return '&lt;g class="boil"&gt;' + M.strand(thread) +
+    M.hung(thread, 0.62, { mark: 'key', length: 22, w: 40, h: 52 }) +
+    M.hung(thread, 0.8, { mark: 'photo', fill: M.colors['amber-pale'] }) +
+    M.seat(reader, x, y, 1, { flip: true, motion: M.sway(0.2) }) + '&lt;/g&gt;';
+};</code></pre>
+      <svg data-scene="threads" viewBox="0 0 900 200" style="width:100%;height:auto;overflow:visible;margin-top:1.6em" role="img" aria-label="A knotted thread, and a thread broken in two with frayed ends."></svg>
+<pre><code>M.strand(a) + M.knot(a, 0.3) + M.strand(b, { until: 0.4, frayed: true }) + M.strand(b, { from: 0.56, frayed: 'start' })</code></pre>
+      <table>
+        <tr><th><code>M.keeper(options)</code></th><td>Same options as <code>data-keeper</code>, as an object. <code>ink</code> is the outline weight: raise it when you seat a keeper small (about 2.8 divided by the scale).</td></tr>
+        <tr><th><code>M.seat(k, x, y, scale, {flip, by, motion})</code></th><td>Places a keeper with its holding point at x, y. <code>motion</code> is <code>M.sway(phase, degrees)</code> for one on a thread or <code>M.bob(phase, pixels)</code> for one swimming.</td></tr>
+        <tr><th><code>M.colors</code></th><td>Every colour variable of <code>kit.css</code>, read once: <code>M.colors.violet</code>, <code>M.colors['amber-pale']</code>. <code>M.ink</code>, <code>M.card</code> and <code>M.paper</code> are the three used most. <code>M.memoris</code> is the name of Memoris's keeper colour.</td></tr>
+        <tr><th><code>M.strand(thread, {color, width, dotted})</code></th><td>Draws the thread. <code>M.hung(thread, t, tag)</code> hangs a small tag or <code>{lantern:true}</code> at t along it.</td></tr>
+        <tr><th><code>M.strand(thread, {from, until, frayed})</code></th><td>Only part of the thread, from and until being 0 to 1 along it. <code>frayed:true</code> frays the far end, <code>frayed:'start'</code> the near one: a thread that broke, or one that does not reach.</td></tr>
+        <tr><th><code>M.drawnPath(d)</code>, <code>M.drawn(points)</code></th><td>For a thread you draw yourself in page coordinates, outside any scene (a rope that follows scroll, a forked string): returns the same path with a hand's slight waver. The waver rides along the line, so it does not shimmer when the line moves, as long as you keep the number of points the same. Stroke it in ink at 2.6 px with round caps.</td></tr>
+        <tr><th><code>M.knot(thread, t, {size})</code></th><td>A knot tied in the thread at t, with its two ends: a thread that broke and was tied back.</td></tr>
+        <tr><th><code>k.anchors</code></th><td>Points on a keeper in its own coordinates, for leader lines and for placing things: <code>curl</code> <code>head</code> <code>base</code> <code>tip</code> <code>hand</code> <code>eye</code> <code>chest</code> <code>fin</code>, <code>satchel</code> when it is worn, <code>handUp</code> on <code>pose:hoist</code>, <code>pencil</code> and <code>pencilUp</code> on <code>pose:draw</code>. Seated with <code>M.seat(k, x, y, scale)</code> by its curl, a point lands at <code>x + (k.anchors.eye[0] - k.anchors.curl[0]) * scale</code>, and the same for y. With <code>flip</code>, negate the x difference.</td></tr>
+        <tr><th><code>M.miniTag</code>, <code>M.lantern</code></th><td>The small tag and the lantern on their own.</td></tr>
+        <tr><th><code>M.voice({mouth: [x, y]})</code></th><td>Three voice arcs leaving a point toward the left, one after another: someone speaking. It returns its own boiling group; wrap it in a <code>scale(-1 1)</code> to speak toward the right.</td></tr>
+        <tr><th>Cycles</th><td>A group with <code>class="cycle" data-loop="30" data-every="4"</code> shows its children one after another, in frames at 12 a second. The voice arcs and the marks above a head use it.</td></tr>
+      </table>
+      <h3 class="d">Memoris on its phone</h3>
+      <p>On the home page Memoris lives on a phone held in a hand, and stays there. This is that drawing. On the other pages Memoris is a free keeper by default: use the phone sparingly there, where a visitor would really have their phone in hand. The hand is the page's paper with a paper-deep shade, so it reads as a hand and not as a white glove (the person is never painted a skin colour), the cuff is the pink of the head, the screen is Memoris's lilac. Memoris takes the same options as a keeper.</p>
+      <div class="demo row" style="align-items:flex-end">
+        <svg data-scene="phone" data-mood="glad" data-kept="key,face" style="width:150px;height:auto;aspect-ratio:300/446;overflow:visible" role="img" aria-label="Memoris on a phone held in a hand."></svg>
+        <svg data-scene="phone" data-pose="read" data-prop="glasses" data-arm="hold" data-hold="book" style="width:150px;height:auto;aspect-ratio:300/446;overflow:visible" aria-hidden="true"></svg>
+        <svg data-scene="phone" data-pose="reach" data-hold="calendar" data-marks="idea" data-kept="heart" style="width:150px;height:auto;aspect-ratio:300/446;overflow:visible" aria-hidden="true"></svg>
+        <svg data-scene="phone" data-mood="open" data-arm="give" data-hold="key" data-kept="calendar,key,face" data-flip style="width:150px;height:auto;aspect-ratio:300/446;overflow:visible" aria-hidden="true"></svg>
+        <svg data-scene="phone" data-near data-mood="glad" data-arm="wave" style="width:88px;height:auto;aspect-ratio:300/446;overflow:visible" aria-hidden="true"></svg>
+        <svg data-scene="phone" data-mood="glad" data-arm="wave" style="width:88px;height:auto;aspect-ratio:300/446;overflow:visible" aria-hidden="true"></svg>
+      </div>
+<pre><code>&lt;svg data-scene="phone" data-mood="glad" data-kept="key,face" role="img" aria-label="..."&gt;&lt;/svg&gt;      size it in CSS, aspect-ratio 300/446
+&lt;svg data-scene="phone" data-pose="read" data-prop="glasses" data-arm="hold" data-hold="book" data-flip&gt;&lt;/svg&gt;
+
+const held = M.phone({ pose: 'reach', hold: 'calendar', marks: 'idea', kept: ['heart'], flip: true });
+M.seat(held, x, y, 0.6)                                    the thread leaves the fingers at x, y</code></pre>
+      <table>
+        <tr><th>Options</th><td><code>pose</code>, <code>mood</code>, <code>arm</code>, <code>hold</code>, <code>marks</code>, <code>look</code> as on a keeper (<code>perch</code>, <code>reach</code> and <code>read</code> sit well on the screen). <code>prop</code> is worn with the satchel. <code>kept</code> is up to three tag marks hanging on the screen's thread. <code>rim:paper</code> outlines the phone on a dark room. The glass is lilac; on a room that is itself lilac the screen would vanish, so the CSS variable <code>--screen</code>, set on the drawing or on any parent, repaints it (<code>--screen:var(--card)</code>). <code>flip</code> mirrors the hand and sends the thread out on the left; tag marks are not mirrored. <code>near</code> (<code>data-near</code>) draws Memoris large, filling the screen, for a phone shown under about 150 px wide where it would otherwise be unreadable (the last two above, at 88 px, with and without): the screen then shows Memoris alone, without the field or the kept tags, and it suits <code>pose:perch</code> with any arm.</td></tr>
+        <tr><th><code>anchors</code></th><td>In the drawing's own 300 by 446 box: <code>thread</code> where the page's thread leaves at the fingers (the default for <code>M.seat</code>), <code>top</code> the top centre of the phone, <code>base</code> the bottom centre of the cuff, <code>screen</code> the centre of the screen, and <code>hand</code>, <code>eye</code> and <code>tip</code> (the snout) of Memoris itself, which follow its pose and the flip. Memoris inside the drawing is a keeper like any other: its group keeps the class <code>k</code>, so a page can hide or address it (<code>.my-phone .k</code>). Use <code>M.seat(held, x, y, scale, { by: 'top' })</code> for another one; never <code>M.seat</code>'s own <code>flip</code>.</td></tr>
+      </table>
+      <h3 class="d">The wall</h3>
+      <p>The pink behind the wall is the person's head. Inside a drawing it is a bay: flat pink, a darker band where the wall has thickness, scalloped edges, no outline. Draw it first, outside any <code>boil</code> group. Scallops swell about 20 units outside the box you give.</p>
+      <svg data-scene="walls" viewBox="0 0 900 250" style="width:100%;height:auto;overflow:hidden;margin-top:1.6em" role="img" aria-label="Three bays: one with its wall on the left, one closed, one with its wall on the right."></svg>
+<pre><code>M.bay({ x: 40, y: 30, w: 240, h: 180 })                    wall on the left, runs off to the right: give it a w that passes your viewBox
+M.bay({ x: 340, y: 30, w: 220, h: 180, side: 'both' })     closed
+M.bay({ x: 620, y: 30, w: 240, h: 180, side: 'right' })    wall on the right
+M.bayPath({ ... })                                         the outline alone, to clip to it</code></pre>
+    </div>
+  </section>
+
+  <section class="room sheet on-dark" id="motion" style="--bg:var(--night);--wall:var(--night-deep);--fg:var(--paper);--thread:var(--paper)">
+    <div class="fold"></div>
+    <div class="wrap">
+      <h2 class="d">Motion</h2>
+      <p>Two cadences, and they never mix. Drawings move on twos at 12 frames a second, with a boiling line: that is the cartoon. Type, tags, layout and anything tied to scroll move smoothly. If text ever steps, the page reads as lagging.</p>
+      <table>
+        <tr><th>Cel, automatic</th><td>Line boil, blinking, fins, hops on hover, eyes on the pointer, tags popping onto threads, <code>M.sway</code>, <code>M.bob</code>, cycles. You get all of it by using keepers and scenes.</td></tr>
+        <tr><th><code>.rv</code></th><td>Fades and settles an element when it enters the window. Stagger with <code>style="--wait:.1s"</code>. Put <code>data-wait-fonts</code> on a first screen so its text waits for the fonts.</td></tr>
+        <tr><th>Tags</th><td>Every <code>.hang</code> sways from scroll speed and comes to rest. Nothing to do.</td></tr>
+        <tr><th><code>data-drift</code></th><td>Any element drifts slightly against the scroll; the value scales it (<code>data-drift=".7"</code>).</td></tr>
+        <tr><th><code>M.ready(fn)</code></th><td>Runs once the kit has drawn everything. Query scene contents from here.</td></tr>
+        <tr><th><code>M.settle(fn)</code></th><td>Runs at start, on resize and when fonts land. Measure layout here.</td></tr>
+        <tr><th><code>M.follow(fn)</code></th><td>For anything tied to scroll. Called every frame while the page moves with <code>{y, height, ease}</code>. Move your value toward its target by <code>ease</code> and return <code>true</code> until it arrives. Never set a scroll-driven value straight from the scroll position: wheel steps would show.</td></tr>
+        <tr><th><code>M.act(svg, name)</code></th><td>A pose drawn with two arm positions switches between them: <code>pose:hoist</code> (hauling a string up) and <code>pose:draw</code> (the two ends of a pencil stroke) each have <code>down</code> and <code>up</code>. Each call is one cel step, so call it at intervals as the page moves (every 60 px of scroll, for instance), never every frame. On the hoist, the string in its fin starts at <code>k.anchors.hand</code> in both positions. On the draw, the tool's point is at <code>k.anchors.pencil</code> and <code>k.anchors.pencilUp</code>, about 36 units apart: put the line being drawn between those two. The eye follows the tool from one position to the other. <code>hold:brush</code> swaps the pencil for a brush.</td></tr>
+        <tr><th><code>M.drawOn(svg, t)</code></th><td>Draws every line inside an element stroke by stroke, t going from 0 to 1, in the order the lines were made. Made for <code>stage:rough</code>, and it works on any drawing that is only lines. Drive it from <code>M.follow</code>; it is reversible.</td></tr>
+        <tr><th><code>M.nod(svg)</code></th><td>Makes the keepers in that drawing hop, to answer a click.</td></tr>
+        <tr><th>Two traps</th><td>Do not set <code>overscroll-behavior</code> on a sticky or scrolling element inside the page: WebKit then stops passing wheel scroll to the page over it. Do not size a <code>.held</code> with CSS <code>scale</code>: use <code>data-size</code> or <code>data-fit</code>.</td></tr>
+        <tr><th>Reduced motion</th><td>The kit stops the cel clock, the sway and every follower, and shows reveals at once. Write your <code>settle</code> so the page is complete without motion: check <code>M.still.matches</code> and set the final state.</td></tr>
+      </table>
+<pre><code>M.ready(() =&gt; {
+  const el = document.querySelector('.thing');
+  let shown = 0, top = 0;
+  M.settle(() =&gt; { top = el.getBoundingClientRect().top + scrollY; if (M.still.matches) shown = 1; render(); });
+  M.follow(({ y, height, ease }) =&gt; {
+    const goal = Math.min(Math.max((y + height - top) / height, 0), 1);
+    if (Math.abs(goal - shown) &lt; 0.0004) return false;
+    shown += (goal - shown) * ease;
+    render();
+    return true;
+  });
+});</code></pre>
+    </div>
+  </section>
+
+  <section class="room sheet" id="pieces" style="--bg:var(--tissue-light);--wall:var(--tissue-mid)">
+    <div class="fold"></div>
+    <div class="wrap">
+      <h2 class="d">Pieces</h2>
+      <h3 class="d">A first screen</h3>
+      <p>The top of this sheet is one: a title, a lede and a drawing, in a frame that the header lines up with. <code>opener--tall</code> fills the window. The drawing stops clear of the next room's fold; add <code>opener__art--ground</code> when it is meant to rise from behind the fold. The home page has a first screen of its own, the threshold between the hand and the head.</p>
+<pre><code>&lt;section class="opener" data-wait-fonts&gt;
+  &lt;div class="opener__frame"&gt;
+    &lt;div class="opener__copy"&gt;&lt;h1 class="d rv"&gt;Title, &lt;em&gt;with a turn.&lt;/em&gt;&lt;/h1&gt;&lt;p class="lede rv"&gt;...&lt;/p&gt;&lt;/div&gt;
+    &lt;figure class="opener__art"&gt;&lt;svg data-scene="..." viewBox="..."&gt;&lt;/svg&gt;&lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+      <h3 class="d">A title with its paragraph</h3>
+      <div class="demo"><div class="plate__head"><h3 class="d">It finds everything for you</h3><p>The paragraph sits to the right on wide windows and under the title on narrow ones.</p></div></div>
+<pre><code>&lt;div class="plate__head"&gt;&lt;h3 class="d"&gt;...&lt;/h3&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;</code></pre>
+      <h3 class="d">Index rows</h3>
+      <div class="demo"><dl class="index" style="margin-top:0"><div class="index__row"><dt class="d">A short claim.</dt><dd><p>One or two sentences that back it.</p></dd></div><div class="index__row"><dt class="d">Another one.</dt><dd><p>Rows are ruled with threads.</p></dd></div></dl></div>
+<pre><code>&lt;dl class="index"&gt;&lt;div class="index__row rv"&gt;&lt;dt class="d"&gt;...&lt;/dt&gt;&lt;dd&gt;&lt;p&gt;...&lt;/p&gt;&lt;/dd&gt;&lt;/div&gt;&lt;/dl&gt;</code></pre>
+      <h3 class="d">Questions</h3>
+      <div class="demo" data-faq>
+        <div class="qa is-open"><h3><button type="button" id="kq1" aria-expanded="true" aria-controls="ka1"><span>An open question?</span><i aria-hidden="true"></i></button><svg class="held" data-keeper="color:coral;head:14" data-size=".7" aria-hidden="true"></svg></h3><div class="qa__a" id="ka1" role="region" aria-labelledby="kq1"><div><div class="hang" style="--tilt:-1.2deg;--in:3%"><div class="tag"><div class="tag__in"><p>Its answer hangs from the question's thread.</p></div></div></div></div></div></div>
+        <div class="qa"><h3><button type="button" id="kq2" aria-expanded="false" aria-controls="ka2"><span>A closed one?</span><i aria-hidden="true"></i></button></h3><div class="qa__a" id="ka2" role="region" aria-labelledby="kq2"><div><div class="hang" style="--tilt:1deg;--in:9%"><div class="tag tag--amber"><div class="tag__in"><p>The keeper hops to whichever question opens.</p></div></div></div></div></div></div>
+      </div>
+      <p class="note">Wrap the list in an element with <code>data-faq</code>; put one <code>.held</code> keeper inside the first question's <code>h3</code>. Copy the markup of one <code>.qa</code> from this sheet.</p>
+      <h3 class="d">A closing room</h3>
+      <p>A page ends on the marigold room, on one thread. Two drawings are ready. Nose to nose: Memoris as a free keeper and another keeper, their tails wrapped around the same thread; it is the ending of the pages about people, and of any page where Memoris is free. On its phone: Memoris on its phone in the hand and a keeper facing it; it is the home page's ending, for a page whose ending is the moment the phone is in hand. Write your own words; the room, the drawing and the Download tag are the kit's. A title followed directly by the button gets its own breathing space from the kit. The title is sized for four or five words; add <code>closing--long</code> to the section for a longer line.</p>
+      <div class="demo" style="background:var(--amber);overflow:hidden"><div class="closing__art closing__art--pair" style="margin-bottom:0"><svg data-scene="pair" data-left="rose" role="img" aria-label="Two keepers, nose to nose, their tails wrapped around the same thread."></svg></div></div>
+      <div class="demo" style="background:var(--amber);overflow:hidden"><div class="closing__art" style="margin-bottom:0"><svg data-scene="threshold" role="img" aria-label="Memoris on its phone in a hand, and the keeper of your memory behind the wall, face to face on the same thread."></svg></div></div>
+      <div class="demo" style="background:var(--amber);overflow:hidden"><div class="closing__art" style="margin-bottom:0"><svg data-scene="threshold" data-wall="none" data-left="rose" role="img" aria-label="Memoris on its phone in a hand, and a rose keeper on the same thread, face to face."></svg></div></div>
+      <table>
+        <tr><th>Nose to nose</th><td><code>data-scene="pair"</code> inside <code>closing__art closing__art--pair</code>: the thread runs off both edges of the window. <code>data-left</code> picks the keeper facing Memoris (<code>coral</code> by default, <code>rose</code> for someone close, <code>amber</code> for a professional), <code>data-prop</code> what it wears, <code>data-mood</code> their mood. No <code>viewBox</code> to write. <code>M.pair({ left, prop, mood })</code> returns the same drawing for a scene of your own, in the box <code>M.pair.box</code> (560 by 290), and <code>M.pair.thread</code> is its thread, edge to edge, to hang something more.</td></tr>
+        <tr><th>With the wall</th><td>On its phone, the home page's logic, for a page about the person: the keeper of their memory stands behind the wall, which runs off to the right edge of the window. From 1760 px of window the bay closes around the keeper and the thread stops inside it, so a very wide screen does not get a long pink band.</td></tr>
+        <tr><th><code>data-wall="none"</code></th><td>For a page about someone else: no head in the picture, only the thread. <code>data-left</code> picks the keeper (<code>rose</code> for a caregiver, <code>amber</code> for a clinician) and <code>data-prop</code> what it wears.</td></tr>
+        <tr><th><code>data-kept</code></th><td>What hangs on the phone, <code>key,face,heart</code> by default. <code>M.threshold({ kept, mood, left, prop, wall })</code> returns the same drawing for a scene of your own, and <code>M.threshold.thread</code> is its thread, from the fingers to the right edge, to hang something more.</td></tr>
+      </table>
+<pre><code>&lt;section class="room closing"&gt;
+  &lt;div class="fold"&gt;&lt;/div&gt;
+  &lt;div class="wrap"&gt;
+    &lt;div class="closing__art closing__art--pair rv"&gt;&lt;svg data-scene="pair" data-left="rose" role="img" aria-label="..."&gt;&lt;/svg&gt;&lt;/div&gt;
+        or, on its phone:  &lt;div class="closing__art rv"&gt;&lt;svg data-scene="threshold" role="img" aria-label="..."&gt;&lt;/svg&gt;&lt;/div&gt;
+    &lt;h2 class="d rv"&gt;Hold on to what matters.&lt;/h2&gt;
+    &lt;p class="rv"&gt;Start with one thing today.&lt;/p&gt;
+    &lt;a class="btn rv" data-store&gt;Download on the App Store&lt;/a&gt;
+    &lt;p class="fine rv"&gt;Free for 3 months, then $15/month.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+      <h3 class="d">Captions</h3>
+      <p>A caption is a sentence under its drawing, in the voice of the page. It carries no "Fig." and no number.</p>
+      <div class="demo"><p class="figcap">The part of your brain that makes new memories is called the hippocampus. That is Greek for seahorse.</p></div>
+<pre><code>&lt;figcaption class="figcap"&gt;...&lt;/figcaption&gt;</code></pre>
+      <h3 class="d">Long text</h3>
+      <div class="demo"><div class="prose"><h2>A heading in long text</h2><p>For the legal pages and any long reading. One column, 38 em wide, with <a href="#pieces">links underlined</a>.</p><ul><li>Lists take a coral dot.</li><li>Keep to one column.</li></ul></div></div>
+<pre><code>&lt;div class="prose"&gt; h2, h3, p, ul, ol &lt;/div&gt;</code></pre>
+    </div>
+  </section>
+
+  <section class="room sheet tell" id="states">
+    <div class="fold"></div>
+    <div class="wrap">
+      <h2 class="d">States</h2>
+      <p>Keyboard focus is a 3 px ring, violet on light rooms and marigold on dark ones; press Tab on this sheet to see it. A "Skip to content" link appears first.</p>
+      <h3 class="d">Where you are, and moving on</h3>
+      <p>The header reads the same on every page: the brand, the Download tag, then the links. Under 520 px of header the Download tag gives way to the Menu tag. The header and the footer mark the current page with a coral bead and a hand-drawn thread; the kit finds it from the file name. Under 930 px of header the nav becomes a Menu tag that opens a lilac sheet: Memoris's phone hangs on the thread of the page you are on, the links arrive in turn, the rest of the page is out of reach until it closes (Escape, a link, or the backdrop). Leaving for another page of the site, a fold of paper rises over the page before the next one settles in. The Download tag that comes down when a reader scrolls back up steps aside whenever a drawing (a keeper, a phone, a hanging tag, a button) is under it or about to be. All of it is the kit's; a page has nothing to write.</p>
+      <h3 class="d">A form</h3>
+      <p>Submit this one empty to see the error, then with an address to see the sent state. The keeper on the card reacts to each.</p>
+      <div class="hang tell__hang" style="margin-top:120px" data-form-host>
+        <svg class="held" data-when="idle" data-keeper="color:amber;head:10" data-size=".9" data-flip data-lift aria-hidden="true"></svg>
+        <svg class="held" data-when="error" data-keeper="color:amber;mood:worried;head:4;marks:question" data-size=".9" data-flip aria-hidden="true"></svg>
+        <svg class="held" data-when="sent" data-keeper="color:amber;mood:glad;head:12;arm:wave;carry:check" data-size=".9" data-flip aria-hidden="true"></svg>
+        <div class="tag"><div class="tag__in">
+          <h2 class="d">In another region or on Android?</h2>
+          <form data-form novalidate>
+            <div class="field">
+              <label class="sr" for="kit-email">Enter your email</label>
+              <input id="kit-email" name="email" type="email" autocomplete="email" placeholder="Enter your email" required aria-describedby="kit-email-error">
+              <p class="field__error" id="kit-email-error" role="alert" hidden>Check your email address and try again.</p>
+            </div>
+            <button class="btn" type="submit">Tell me when</button>
+            <p class="sent" tabindex="-1" role="status"><b>Kept.</b><span>We’ll tell you as soon as it’s available for you.</span></p>
+          </form>
+        </div></div>
+      </div>
+<pre><code>&lt;form data-form novalidate&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="sr" for="email"&gt;Enter your email&lt;/label&gt;
+    &lt;input id="email" type="email" required placeholder="Enter your email" aria-describedby="email-error"&gt;
+    &lt;p class="field__error" id="email-error" role="alert" hidden&gt;Check your email address and try again.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;button class="btn" type="submit"&gt;Tell me when&lt;/button&gt;
+  &lt;p class="sent" tabindex="-1" role="status"&gt;&lt;b&gt;Kept.&lt;/b&gt;&lt;span&gt;We’ll tell you as soon as it’s available for you.&lt;/span&gt;&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+      <p class="note">The kit checks each field, shows the error it points to with <code>aria-describedby</code>, gives the field a small shake, and on success adds <code>is-sent</code> to the form. Nothing is sent anywhere yet.</p>
+      <p class="note">To make a keeper react, put <code>data-form-host</code> on an element around the form and give it up to three keepers marked <code>data-when="idle"</code>, <code>"error"</code> and <code>"sent"</code>: the kit shows the one that matches and makes it hop. The same attribute works on anything else inside the host.</p>
+<pre><code>&lt;div class="hang" data-form-host&gt;
+  &lt;svg class="held" data-when="idle" data-keeper="color:amber;head:10" data-lift ...&gt;&lt;/svg&gt;
+  &lt;svg class="held" data-when="error" data-keeper="color:amber;mood:worried;marks:question" ...&gt;&lt;/svg&gt;
+  &lt;svg class="held" data-when="sent" data-keeper="color:amber;mood:glad;arm:wave;carry:check" ...&gt;&lt;/svg&gt;
+  &lt;div class="tag"&gt;&lt;div class="tag__in"&gt; &lt;form data-form novalidate&gt; ... &lt;/form&gt; &lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </section>
+
+  <section class="room sheet" id="rules" style="--bg:var(--amber);--wall:var(--amber-deep)">
+    <div class="fold"></div>
+    <div class="wrap">
+      <h2 class="d">Rules</h2>
+      <ul class="rules">
+        <li>One hand for the characters. Compose from the library; ask for a pose, a prop or a mark that is missing.</li>
+        <li>Violet with the satchel is Memoris, on every page. Violet is Memoris's alone: no other keeper, prop or drawing takes it.</li>
+        <li>What a person says or takes is a tag on a thread. Do not invent cards, bubbles or boxes.</li>
+        <li>Backgrounds are flat paint with no outline. Only characters and what they touch carry the ink line.</li>
+        <li>Cel cadence for drawings, smooth for everything else.</li>
+        <li>No "Fig." and no numbers on captions.</li>
+        <li>Not yet is dashed and unpainted: <code>tag--planned</code>, <code>thread--dotted</code>, <code>planned:true</code>, and <code>stage:ink</code> for a keeper.</li>
+        <li>Casting holds on every page: violet is Memoris, coral the person's memory, rose someone close, amber a professional. Colour alone tells them apart.</li>
+        <li>Memoris is never drawn inside a head or a brain shape, anywhere. On the home page it is only ever on its phone (<code>M.phone</code>). On the other pages it is a free keeper by default, and the phone is used sparingly, where a visitor would really have their phone in hand.</li>
+        <li>Colours and type come from the variables of <code>kit.css</code>. No hex value, font name, numeric weight or axis setting in a page.</li>
+        <li>No em dashes, anywhere.</li>
+        <li>Nothing goes into <code>kit/</code> from a page. If a piece should be shared, ask.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+
+<script src="kit/keepers.js"></script>
+<script src="kit/kit.js"></script>
+<script>
+(() => {
+  const M = window.Memoris;
+  const codes = (list) => list.map((name) => '<code>' + name + '</code>').join(' ');
+  const fill = (id, list) => {
+    document.getElementById(id).innerHTML = codes(list);
+  };
+  fill('list-poses', M.poses);
+  fill('list-moods', M.moods);
+  fill('list-arms', M.arms.concat(['none']));
+  document.getElementById('list-arms').innerHTML += ' <code>lens</code> brings whatever is held up over the eye.';
+  fill('list-hold', M.holdables.concat(['a tag mark']));
+  fill('list-props', M.headwear.concat(M.bodywear));
+  fill('list-marks', M.emanata);
+  fill('list-looks', M.looks);
+  document.getElementById('list-looks').innerHTML += ' A fixed gaze, for a keeper busy with something. Without it the eyes follow the pointer.';
+  fill('list-tagmarks', M.tagMarks);
+  document.getElementById('list-props').innerHTML += ' Combine with commas.';
+
+  const FAMILIES = [
+    ['Memoris', ['violet', 'violet-deep', 'violet-pale', 'lilac', 'lilac-deep']],
+    ['Ink and paper', ['ink', 'ink-deep', 'paper', 'paper-deep', 'card']],
+    ['The head', ['tissue', 'tissue-deep', 'tissue-light', 'tissue-mid']],
+    ['Your memory, someone close, a professional', ['coral', 'coral-deep', 'coral-pale', 'rose', 'rose-deep', 'rose-pale', 'amber', 'amber-deep', 'amber-pale', 'glow', 'leaf']],
+    ['Other rooms', ['mint', 'mint-deep', 'night', 'night-deep']]
+  ];
+  document.getElementById('swatches').innerHTML = FAMILIES.map(([title, names]) => '<h3 class="d family">' + title + '</h3><ul class="swatches">' + names.map((name) => '<li><i style="background:var(--' + name + ')"></i>--' + name + '<b>' + M.colors[name] + '</b></li>').join('') + '</ul>').join('');
+
+  document.getElementById('notes-demo').innerHTML = M.tagMarks.filter((mark) => mark !== 'none').map((mark, i, all) => '<svg class="held" style="left:' + (4 + (i * 92) / (all.length - 1)).toFixed(1) + '%" data-note="mark:' + mark + (i % 3 === 1 ? ';fill:amber-pale' : i % 5 === 4 ? ';fill:lilac' : '') + (mark === 'goal' ? ';planned:true' : mark === 'star' ? ';gone:true' : '') + ';length:' + (18 + ((i * 7) % 26)) + '" data-size="1.1" aria-hidden="true"></svg>').join('');
+  const FREE = ['swim', 'dash'];
+  const cell = (spec, label) => {
+    const pose = (spec.match(/pose:(\w+)/) || [])[1] || 'perch';
+    const kind = FREE.includes(pose) ? ' cell--free' : pose === 'hang' ? ' cell--hang' : '';
+    return '<figure class="cell' + kind + '"><div class="perch"><span class="thread"></span><svg class="held" data-keeper="' + spec + '" data-size=".72" aria-hidden="true"></svg></div><figcaption><code>' + (label || spec) + '</code></figcaption></figure>';
+  };
+  const gallery = (id, specs) => {
+    document.getElementById(id).innerHTML = specs.map((spec) => (Array.isArray(spec) ? cell(spec[0], spec[1]) : cell(spec))).join('');
+  };
+  const cast = ['coral', 'violet', 'amber', 'rose'];
+  gallery('gallery-stages', [['stage:rough;color:coral', 'stage:rough'], ['stage:ink;color:coral', 'stage:ink'], ['color:coral', 'painted (no stage)']]);
+  gallery('gallery-poses', M.poses.map((pose, i) => ['pose:' + pose + ';color:' + cast[i % cast.length] + (cast[i % cast.length] === 'violet' ? ';prop:satchel' : '') + (pose === 'peer' ? ';hold:magnifier' : ''), 'pose:' + pose + (pose === 'peer' ? ';hold:magnifier' : '')]).concat([['pose:perch;color:amber;back:true', 'back:true'], ['pose:perch;color:rose;lean:-12;head:14', 'lean:-12;head:14']]));
+  gallery('gallery-moods', M.moods.map((mood, i) => ['mood:' + mood + ';color:' + cast[i % cast.length], 'mood:' + mood]));
+  gallery('gallery-acting', [
+    ['arm:lens;hold:magnifier;color:rose', 'arm:lens;hold:magnifier'], ['arm:down;hold:case;color:rose', 'arm:down;hold:case'], ['pose:wait;hold:face;color:violet;prop:satchel', 'pose:wait;hold:face'], ['pose:tie;hold:goal;color:coral', 'pose:tie;hold:goal'], ['arm:grip;head:-14;color:violet;prop:satchel', 'arm:grip (a string hangs from hand)'], ['arm:give;hold:calendar;color:rose', 'arm:give;hold:calendar'],
+    ['pose:offer;hold:sheet;color:amber;prop:stethoscope', 'pose:offer;hold:sheet'], ['arm:hold;hold:clipboard;color:amber;prop:stethoscope', 'hold:clipboard'], ['arm:point;color:coral', 'arm:point'], ['arm:wave;mood:glad;color:amber', 'arm:wave'], ['arm:up;pose:reach;color:coral;carry:key', 'arm:up, carry:key'], ['arm:chin;mood:thinking;color:rose', 'arm:chin'],
+    ['arm:hold;hold:book;pose:read;color:amber;prop:glasses', 'hold:book, prop:glasses'], ['arm:hold;hold:pencil;mood:focused;color:coral', 'hold:pencil'], ['arm:hold;hold:magnifier;color:amber', 'hold:magnifier'], ['arm:hold;hold:letter;color:rose', 'hold:letter'],
+    ['arm:hold;hold:phone;color:amber', 'hold:phone'], ['arm:hold;hold:cup;pose:rest;color:rose', 'hold:cup'], ['arm:hold;hold:lantern;color:coral', 'hold:lantern'], ['arm:hold;hold:photo;color:violet;prop:satchel', 'hold:photo (any tag mark)'],
+    ['pose:swim;carry:letter;color:rose', 'carry:letter'], ['pose:swim;carry:lantern;color:amber', 'carry:lantern'], ['prop:headlamp;pose:read;color:coral', 'prop:headlamp'], ['prop:scarf;color:amber', 'prop:scarf'],
+    ['prop:stethoscope;color:coral', 'prop:stethoscope'], ['prop:nightcap;pose:curl;color:rose;marks:zz', 'prop:nightcap']
+  ]);
+  gallery('gallery-marks', M.emanata.map((marks, i) => ['marks:' + marks + ';color:' + cast[i % cast.length] + (marks === 'speed' ? ';pose:dash' : '') + (marks === 'zz' ? ';mood:asleep' : marks === 'exclaim' ? ';mood:surprised' : marks === 'sweat' ? ';mood:worried' : marks === 'say' ? ';mood:saying' : ''), 'marks:' + marks]));
+
+  M.scenes.sheet = () => {
+    const upper = [20, 120, 280, 168, 540, 112];
+    const lower = [128, 300, 340, 348, 548, 296];
+    const held = M.phone({ mood: 'glad', kept: ['key', 'face'] });
+    const hanger = M.keeper({ pose: 'reach', color: 'coral', carry: { mark: 'photo', w: 34, h: 42 }, ink: 3.2 });
+    const reader = M.keeper({ pose: 'read', color: 'amber', prop: 'glasses', arm: 'hold', hold: 'book', ink: 3.2 });
+    const sleeper = M.keeper({ pose: 'curl', color: 'rose', prop: 'nightcap', marks: 'zz', ink: 3.6 });
+    const runner = M.keeper({ pose: 'dash', color: 'coral', marks: 'speed', carry: 'letter', ink: 4.4 });
+    const [hx, hy] = M.threadPoint(lower, 0.24);
+    const [rx, ry] = M.threadPoint(upper, 0.74);
+    const [sx, sy] = M.threadPoint(lower, 0.8);
+    return '<g class="boil">' + M.strand(upper) + M.strand(lower) +
+      M.hung(upper, 0.14, { mark: 'key', length: 20, w: 36, h: 46 }) + M.hung(upper, 0.3, { mark: 'calendar', length: 34, w: 34, h: 42, fill: M.colors['amber-pale'] }) + M.hung(upper, 0.46, { mark: 'heart', length: 18, w: 34, h: 44 }) +
+      M.hung(lower, 0.46, { mark: 'face', length: 16, w: 34, h: 42, fill: M.colors.lilac }) + M.hung(lower, 0.6, { mark: 'lines', length: 30, w: 32, h: 40 }) +
+      M.seat(hanger, hx, hy, 0.8, { motion: M.sway(0.1) }) + M.seat(reader, rx, ry, 0.82, { flip: true, motion: M.sway(0.5) }) + M.seat(sleeper, sx, sy - 6, 0.74, { motion: M.sway(0.8, 1.2) }) +
+      M.seat(runner, 300, 236, 0.5, { motion: M.bob(0.3, 5) }) + '</g>' + M.seat(held, lower[0], lower[1], 0.4);
+  };
+  M.scenes.walls = () => M.bay({ x: 40, y: 30, w: 240, h: 180 }) + M.bay({ x: 340, y: 30, w: 220, h: 180, side: 'both' }) + M.bay({ x: 620, y: 30, w: 240, h: 180, side: 'right' });
+  M.scenes.threads = () => {
+    const a = [0, 44, 450, 84, 900, 44];
+    const b = [0, 132, 450, 162, 900, 132];
+    return '<g class="boil">' + M.strand(a) + M.knot(a, 0.3) + M.hung(a, 0.5, { mark: 'calendar' }) + M.hung(a, 0.72, { mark: 'heart', fill: M.colors['amber-pale'] }) +
+      M.strand(b, { until: 0.4, frayed: true }) + M.strand(b, { from: 0.56, frayed: 'start' }) + M.hung(b, 0.18, { mark: 'key' }) + M.hung(b, 0.82, { mark: 'face' }) + '</g>';
+  };
+})();
+</script>
+</body>
+</html>
